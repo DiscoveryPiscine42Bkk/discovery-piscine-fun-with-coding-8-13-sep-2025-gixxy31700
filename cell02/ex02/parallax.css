@@ -1,0 +1,42 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+.parallax {
+  height: 100vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 2rem;
+  text-shadow: 2px 2px 5px black;
+}
+
+.img1 {
+  background-image: url("https://preview.redd.it/random-question-but-does-anyone-have-versions-of-this-cat-v0-ya8qikz9kn0f1.png?width=640&crop=smart&auto=webp&s=2487b53aa5d4ac4e710f7717a6850c83562272ab");
+}
+
+.img2 {
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9EXPW0lZk14DSwbFPPYrNXrRm8v1czGDOXw&s"); 
+}
+
+.block {
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 150px 20px;
+  font-size: 1.5rem;
+}
+
+.text {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+}
