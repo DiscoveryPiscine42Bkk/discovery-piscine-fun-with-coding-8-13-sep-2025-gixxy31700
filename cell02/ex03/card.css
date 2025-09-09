@@ -1,45 +1,93 @@
-* { box-sizing: border-box; }
-html, body { height: 100%; margin: 0; font-family: Arial, sans-serif; }
-body { display: grid; place-items: center; background: #f5f5f7; }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f5f7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+}
+
+.page-title {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
 
 .card {
   width: 320px;
-  background: #ffffff;
+  background: #fff;
   border: 1px solid #ddd;
   border-radius: 12px;
-  padding: 20px 18px;
-}
-
-.card-title {
-  margin: 0 0 12px 0;
-  font-size: 1.25rem;
+  padding: 20px 15px;
   text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-.layout { width: 100%; border-collapse: collapse; }
-.layout td { border: none; padding: 8px 0; }
-.center { text-align: center; }
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.info-table td {
+  border: none;
+  padding: 8px 0;
+}
+
+.photo-cell {
+  text-align: center;
+  padding-bottom: 10px;
+}
 
 .avatar {
-  width: 120px; height: 120px; border-radius: 50%;
-  object-fit: cover; display: inline-block;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
-.login { margin-top: 6px; font-weight: bold; }
-.desc  { color: #666; }
+.login {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
 
-.socials { display: inline-flex; gap: 10px; margin-top: 6px; }
-.socials img { width: 24px; height: 24px; display: block; }
+.desc {
+  font-size: 1rem;
+  color: #555;
+}
+
+.age {
+  font-size: 0.95rem;
+  color: #777;
+}
+
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.socials img {
+  width: 28px;
+  height: 28px;
+}
 
 .btn {
   display: inline-block;
-  margin-top: 12px;
-  padding: 10px 16px;
-  border-radius: 8px;
+  margin-top: 15px;
+  padding: 10px 18px;
   background: #222;
   color: #fff;
+  border-radius: 8px;
   text-decoration: none;
+  font-size: 1rem;
 }
-.img1 {
-  background-image: url("https://preview.redd.it/random-question-but-does-anyone-have-versions-of-this-cat-v0-ya8qikz9kn0f1.png?width=640&crop=smart&auto=webp&s=2487b53aa5d4ac4e710f7717a6850c83562272ab");
+
+.btn:hover {
+  background: #444;
 }
