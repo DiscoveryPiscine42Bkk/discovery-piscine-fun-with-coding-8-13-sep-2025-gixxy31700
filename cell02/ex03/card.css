@@ -1,90 +1,75 @@
-* {
-  box-sizing: border-box;
-}
-html,
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
 body {
-  margin: 0;
-  font-family: system-ui, Arial, sans-serif;
-  background: #f6f6f6;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f2f3f6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px;
 }
+
 .page-title {
-  text-align: center;
-  margin: 24px 0 12px;
-}
-
-.card {
-  width: 300px;
-  margin: 0 auto 40px;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
-  overflow: hidden;
-  padding-bottom: 12px;
-}
-
-.info-table {
-  width: 100%;
-  border-collapse: collapse;
-  border: none;
-}
-.info-table td {
-  border: none;
-  padding: 8px 14px;
-  text-align: center;
-}
-
-.photo-cell {
-  padding: 0;
-}
-.avatar {
-  width: 100%;
-  display: block;
-}
-
-.login {
-  font-weight: 800;
-  font-size: 22px;
-}
-
-.desc {
-  color: #666;
-  font-size: 14px;
-}
-
-.city {
-  text-align: left;
-  font-size: 13px;
+  margin: 0 0 22px 0;
+  font-size: 20px;
   color: #111;
 }
 
-.socials {
+.card {
+  width: 340px;
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 12px;
+  padding: 22px 18px;
+  box-shadow: 0 6px 14px rgba(0,0,0,.08);
   text-align: center;
-  padding: 10px 0;
 }
 
+.info-table { width: 100%; border-collapse: collapse; }
+.info-table td { border: none; padding: 8px 0; }
+
+.photo-cell { padding-top: 6px; }
+.avatar {
+  width: 120px; height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: inline-block;
+}
+
+.login {
+  margin-top: 8px;
+  font-weight: 700;
+  color: #111;
+}
+.desc  { color: #6b6f76; }
+.age   { color: #8a8f96; }
+
+.socials {
+  display: inline-flex;
+  gap: 14px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 6px;
+}
 .socials img {
-  width: 22px;
-  height: 22px;
-  margin: 0 8px;
-  vertical-align: middle;
+  width: 26px; height: 26px;
+  display: block;
   filter: grayscale(100%);
-  transition: filter 0.2s;
+  opacity: .9;
 }
-
 .socials a:hover img {
   filter: none;
+  opacity: 1;
 }
 
 .btn {
-  display: block;
-  margin: 10px 12px 4px;
-  text-align: center;
-  background: #111;
+  display: inline-block;
+  margin-top: 14px;
+  padding: 10px 18px;
+  background: #222;
   color: #fff;
-  text-decoration: none;
-  padding: 10px 0;
   border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
 }
-.btn:hover {
-  background: #333;
-}
+.btn:hover { background: #3a3a3a; }
