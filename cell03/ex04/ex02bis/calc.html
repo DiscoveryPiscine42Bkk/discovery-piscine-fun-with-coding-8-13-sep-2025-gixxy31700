@@ -40,6 +40,7 @@
       border-color: #111
     }
   </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -57,49 +58,49 @@
   </form>
 
   <script>
-    setInterval(() => alert("Please, use me..."), 30000);
+    $(document).ready(function () {
+      // alert ทุก ๆ 30 วินาที
+      setInterval(function () {
+        alert("Please, use me...");
+      }, 30000);
 
-    const form = document.getElementById("calc");
-    const leftEl = document.getElementById("left");
-    const rightEl = document.getElementById("right");
-    const opEl = document.getElementById("op");
-
-    function isNonNegativeInt(str) {
-      return /^\d+$/.test(str);
-    }
-
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      const lstr = leftEl.value.trim();
-      const rstr = rightEl.value.trim();
-
-      if (!isNonNegativeInt(lstr) || !isNonNegativeInt(rstr)) {
-        alert("Error :(");
-        return;
+      function isNonNegativeInt(str) {
+        return /^\d+$/.test(str);
       }
 
-      const a = parseInt(lstr, 10);
-      const b = parseInt(rstr, 10);
-      const op = opEl.value;
+      $("#calc").submit(function (e) {
+        e.preventDefault();
 
-      if ((op === "/" || op === "%") && b === 0) {
-        console.log("It's over 9000!");
-        alert("It's over 9000!");
-        return;
-      }
+        const lstr = $("#left").val().trim();
+        const rstr = $("#right").val().trim();
+        const op = $("#op").val();
 
-      let result;
-      switch (op) {
-        case "+": result = a + b; break;
-        case "-": result = a - b; break;
-        case "*": result = a * b; break;
-        case "/": result = a / b; break;
-        case "%": result = a % b; break;
-      }
+        if (!isNonNegativeInt(lstr) || !isNonNegativeInt(rstr)) {
+          alert("Error :(");
+          return;
+        }
 
-      console.log(result);
-      alert(String(result));
+        const a = parseInt(lstr, 10);
+        const b = parseInt(rstr, 10);
+
+        if ((op === "/" || op === "%") && b === 0) {
+          console.log("It's over 9000!");
+          alert("It's over 9000!");
+          return;
+        }
+
+        let result;
+        switch (op) {
+          case "+": result = a + b; break;
+          case "-": result = a - b; break;
+          case "*": result = a * b; break;
+          case "/": result = a / b; break;
+          case "%": result = a % b; break;
+        }
+
+        console.log(result);
+        alert(String(result));
+      });
     });
   </script>
 </body>
