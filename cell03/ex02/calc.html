@@ -1,82 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Calculator</title>
+  <meta charset="UTF-8" />
+  <title>It's over 9000</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-top: 50px;
+      font-family: system-ui, Segoe UI, Arial, sans-serif;
+      display: grid;
+      place-items: center;
+      height: 100vh;
+      margin: 0;
+      background: #f7f7fb
     }
-    input, select, button {
-      margin: 5px;
-      padding: 5px;
+
+    .calc {
+      background: #fff;
+      padding: 20px 24px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, .08);
+      display: flex;
+      gap: 10px;
+      align-items: center
+    }
+
+    input,
+    select {
+      padding: 10px 12px;
       font-size: 16px;
+      border: 1px solid #d9d9e3;
+      border-radius: 8px;
+      min-width: 110px
+    }
+
+    input[type="submit"] {
+      cursor: pointer;
+      background: #111;
+      color: #fff;
+      border-color: #111
     }
   </style>
 </head>
+
 <body>
-  <h1>Basic Calculator</h1>
-  
-  <input type="text" id="left" placeholder="Left operand">
-  <select id="operator">
-    <option value="+">+</option>
-    <option value="-">-</option>
-    <option value="*">*</option>
-    <option value="/">/</option>
-    <option value="%">%</option>
-  </select>
-  <input type="text" id="right" placeholder="Right operand">
-  
-  <input type="submit" id="btn" value="Try me!">
+  <form id="calc" class="calc">
+    <input id="left" type="text" placeholder="Left (>=0)" />
+    <select id="op" aria-label="operator">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+      <option value="%">%</option>
+    </select>
+    <input id="right" type="text" placeholder="Right (>=0)" />
+    <input type="submit" value="Try me!" />
+  </form>
 
   <script>
-    function isPositiveInteger(value) {
-      return /^\d+$/.test(value); // only digits (>=0)
+    setInterval(() => alert("Please, use me..."), 30000);
+
+    const form = document.getElementById("calc");
+    const leftEl = document.getElementById("left");
+    const rightEl = document.getElementById("right");
+    const opEl = document.getElementById("op");
+
+    function isNonNegativeInt(str) {
+      return /^\d+$/.test(str);
     }
 
-    document.getElementById("btn").addEventListener("click", function() {
-      const left = document.getElementById("left").value.trim();
-      const right = document.getElementById("right").value.trim();
-      const operator = document.getElementById("operator").value;
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
 
-      // Validate input
-      if (!isPositiveInteger(left) || !isPositiveInteger(right)) {
+      const lstr = leftEl.value.trim();
+      const rstr = rightEl.value.trim();
+
+      if (!isNonNegativeInt(lstr) || !isNonNegativeInt(rstr)) {
         alert("Error :(");
         return;
       }
 
-      const num1 = parseInt(left, 10);
-      const num2 = parseInt(right, 10);
-      let result;
+      const a = parseInt(lstr, 10);
+      const b = parseInt(rstr, 10);
+      const op = opEl.value;
 
-      // Handle division/modulo by zero
-      if ((operator === "/" || operator === "%") && num2 === 0) {
-        alert("It's over 9000!");
+      if ((op === "/" || op === "%") && b === 0) {
         console.log("It's over 9000!");
+        alert("It's over 9000!");
         return;
       }
 
-      // Perform calculation
-      switch (operator) {
-        case "+": result = num1 + num2; break;
-        case "-": result = num1 - num2; break;
-        case "*": result = num1 * num2; break;
-        case "/": result = num1 / num2; break;
-        case "%": result = num1 % num2; break;
+      let result;
+      switch (op) {
+        case "+": result = a + b; break;
+        case "-": result = a - b; break;
+        case "*": result = a * b; break;
+        case "/": result = a / b; break;
+        case "%": result = a % b; break;
       }
 
-      alert("Result: " + result);
-      console.log("Result: " + result);
+      console.log(result);
+      alert(String(result));
     });
-
-    // Reminder every 30s
-    setInterval(() => {
-      alert("Please, use me...");
-    }, 30000);
   </script>
 </body>
+
 </html>
