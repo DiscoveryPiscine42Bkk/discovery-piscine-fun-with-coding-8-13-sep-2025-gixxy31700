@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>เรซูเม่ | Your Name</title>
+  <style>
+    :root{
+      --bg:#f7f7fb; --fg:#111; --muted:#555; --card:#fff; --line:#e5e7eb; --pill:#0f172a;
+      --accent:#111; --link:#0ea5e9;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans Thai", Arial, sans-serif;
+      color:var(--fg); background:var(--bg);
+      line-height:1.55;
+    }
+    .wrap{max-width:960px;margin:32px auto;padding:0 20px}
+    header{
+      display:grid; gap:12px; align-items:center;
+      grid-template-columns: 96px 1fr; margin-bottom:16px
+    }
+    .avatar{width:96px;height:96px;border-radius:16px;object-fit:cover;border:2px solid var(--line)}
+    .title{display:flex;flex-direction:column;gap:6px}
+    h1{font-size:28px; line-height:1.2; margin:0}
+    .role{font-weight:600; color:var(--muted)}
+    .contact{display:flex;flex-wrap:wrap; gap:8px; font-size:14px; color:var(--muted)}
+    .contact a{color:var(--link); text-decoration:none}
+
+    .grid{
+      display:grid; gap:16px; grid-template-columns: 320px 1fr;
+    }
+    @media (max-width: 840px){
+      .grid{grid-template-columns: 1fr}
+      header{grid-template-columns: 72px 1fr}
+      .avatar{width:72px;height:72px}
+    }
+
+    .card{
+      background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px;
+      box-shadow: 0 6px 18px rgba(0,0,0,.06);
+    }
+    .section-title{font-size:14px; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); margin:0 0 10px}
+    .summary{font-size:15px}
+    .pill{
+      display:inline-block; background:var(--pill); color:#fff; border-radius:999px; padding:6px 10px; font-size:13px; margin:4px 6px 0 0
+    }
+    .list{margin:0; padding-left:18px}
+    .item{margin:0 0 12px}
+
+    /* Timeline */
+    .timeline{position:relative}
+    .timeline:before{content:""; position:absolute; left:10px; top:0; bottom:0; width:2px; background:var(--line)}
+    .t{position:relative; padding-left:28px; margin-bottom:16px}
+    .t:before{content:""; position:absolute; left:2px; top:6px; width:16px; height:16px; border-radius:50%; background:#fff; border:2px solid var(--accent)}
+    .t h3{margin:0 0 2px; font-size:16px}
+    .t .meta{font-size:13px; color:var(--muted)}
+
+    /* Print styles */
+    @media print{
+      body{background:#fff}
+      .wrap{max-width:100%; margin:0; padding:0}
+      .card{box-shadow:none}
+      a{color:#000; text-decoration:none}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <img class="avatar" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=256&auto=format&fit=crop" alt="profile" />
+      <div class="title">
+        <h1>ชื่อตัวอย่าง นามสกุล</h1>
+        <div class="role">ตำแหน่ง/สายงาน — Front‑End Developer • Graphic Designer</div>
+        <div class="contact">
+          <span>📍 ชลบุรี, ไทย</span>
+          <span>•</span>
+          <a href="mailto:you@example.com">you@example.com</a>
+          <span>•</span>
+          <a href="tel:+66999999999">+66 99 999 9999</a>
+          <span>•</span>
+          <a href="https://github.com/yourname" target="_blank" rel="noreferrer">github.com/yourname</a>
+          <span>•</span>
+          <a href="https://linkedin.com/in/yourname" target="_blank" rel="noreferrer">linkedin.com/in/yourname</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="grid">
+      <!-- Left column -->
+      <aside class="col-left" style="display:grid; gap:16px">
+        <section class="card">
+          <h2 class="section-title">สรุปย่อ</h2>
+          <p class="summary">นักพัฒนาเว็บที่ถนัด HTML/CSS/JavaScript และออกแบบกราฟิกสายมินิมอล มีประสบการณ์ทำงานกับลูกค้า SME และงานภาคการศึกษา ทำงานเป็นทีมและสื่อสารได้ดี ชอบเรียนรู้เทคโนโลยีใหม่ ๆ</p>
+        </section>
+
+        <section class="card">
+          <h2 class="section-title">ทักษะหลัก</h2>
+          <div>
+            <span class="pill">HTML5</span>
+            <span class="pill">CSS3</span>
+            <span class="pill">JavaScript</span>
+            <span class="pill">jQuery</span>
+            <span class="pill">Responsive Design</span>
+            <span class="pill">Figma</span>
+            <span class="pill">Illustrator</span>
+            <span class="pill">Photoshop</span>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2 class="section-title">ภาษา</h2>
+          <ul class="list">
+            <li class="item">ไทย — ดีมาก</li>
+            <li class="item">อังกฤษ — ปานกลาง</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2 class="section-title">ใบรับรอง</h2>
+          <ul class="list">
+            <li class="item">Google UX Design (2024)</li>
+            <li class="item">Meta Front‑End Developer (2023)</li>
+          </ul>
+        </section>
+      </aside>
+
+      <!-- Right column -->
+      <main class="col-right" style="display:grid; gap:16px">
+        <section class="card">
+          <h2 class="section-title">ประสบการณ์ทำงาน</h2>
+          <div class="timeline">
+            <div class="t">
+              <h3>Front‑End Developer — 654Chluu</h3>
+              <div class="meta">ม.ค. 2024 — ปัจจุบัน · ชลบุรี</div>
+              <ul class="list">
+                <li class="item">พัฒนาเว็บเพจสำหรับแสดงผลงานและระบบสั่งทำป้ายด้วย HTML/CSS/JS</li>
+                <li class="item">ออกแบบ UI แนวมินิมอล รองรับมือถือ (Responsive)</li>
+                <li class="item">ทำโฆษณาและสื่อโปรโมตแบรนด์ด้วย Illustrator/Photoshop</li>
+              </ul>
+            </div>
+            <div class="t">
+              <h3>Graphic Designer — Freelance</h3>
+              <div class="meta">ก.ย. 2022 — ธ.ค. 2023 · Remote</div>
+              <ul class="list">
+                <li class="item">ออกแบบโลโก้ขาว‑ดำแบบเวกเตอร์ให้ร้านค้าและงานการศึกษา</li>
+                <li class="item">ผลิตสื่อ A3/A4 พร้อมไฟล์สำหรับพิมพ์</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2 class="section-title">โครงการเด่น</h2>
+          <ul class="list">
+            <li class="item"><strong>HAND Model</strong> — อินโฟกราฟิกและเว็บไซต์แนะนำโมเดลเสริมวินัยสำหรับเด็กปฐมวัย</li>
+            <li class="item"><strong>Minimal Shop Landing</strong> — หน้า Landing สำหรับร้านงานฝีมือ พร้อมฟอร์มติดต่อ</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2 class="section-title">การศึกษา</h2>
+          <div class="timeline">
+            <div class="t">
+              <h3>ปริญญาตรี — ครุศาสตร์ (การศึกษาปฐมวัย)</h3>
+              <div class="meta">มหาวิทยาลัยตัวอย่าง · 2018 — 2022</div>
+              <ul class="list">
+                <li class="item">โครงงานด้านสื่อการสอนเชิงโต้ตอบและการออกแบบกิจกรรม</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2 class="section-title">รางวัล & ความสำเร็จ</h2>
+          <ul class="list">
+            <li class="item">ชนะเลิศออกแบบโลโก้ชุมชน (2024)</li>
+            <li class="item">Finalist โครงงานสื่อการสอนเด็กปฐมวัย (2023)</li>
+          </ul>
+        </section>
+      </main>
+    </div>
+
+    <footer style="text-align:center; color:var(--muted); font-size:13px; margin-top:18px">
+      อัปเดตล่าสุด: กันยายน 2025 · พิมพ์หน้านี้เพื่อส่งเป็น PDF ได้โดยตรง
+    </footer>
+  </div>
+</body>
+</html>
