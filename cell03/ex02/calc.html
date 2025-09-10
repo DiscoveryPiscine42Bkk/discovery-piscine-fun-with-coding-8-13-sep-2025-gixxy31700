@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 50px;
+    }
+    input, select, button {
+      margin: 5px;
+      padding: 5px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Basic Calculator</h1>
+  
+  <input type="text" id="left" placeholder="Left operand">
+  <select id="operator">
+    <option value="+">+</option>
+    <option value="-">-</option>
+    <option value="*">*</option>
+    <option value="/">/</option>
+    <option value="%">%</option>
+  </select>
+  <input type="text" id="right" placeholder="Right operand">
+  
+  <input type="submit" id="btn" value="Try me!">
+
+  <script>
+    function isPositiveInteger(value) {
+      return /^\d+$/.test(value); // only digits (>=0)
+    }
+
+    document.getElementById("btn").addEventListener("click", function() {
+      const left = document.getElementById("left").value.trim();
+      const right = document.getElementById("right").value.trim();
+      const operator = document.getElementById("operator").value;
+
+      // Validate input
+      if (!isPositiveInteger(left) || !isPositiveInteger(right)) {
+        alert("Error :(");
+        return;
+      }
+
+      const num1 = parseInt(left, 10);
+      const num2 = parseInt(right, 10);
+      let result;
+
+      // Handle division/modulo by zero
+      if ((operator === "/" || operator === "%") && num2 === 0) {
+        alert("It's over 9000!");
+        console.log("It's over 9000!");
+        return;
+      }
+
+      // Perform calculation
+      switch (operator) {
+        case "+": result = num1 + num2; break;
+        case "-": result = num1 - num2; break;
+        case "*": result = num1 * num2; break;
+        case "/": result = num1 / num2; break;
+        case "%": result = num1 % num2; break;
+      }
+
+      alert("Result: " + result);
+      console.log("Result: " + result);
+    });
+
+    // Reminder every 30s
+    setInterval(() => {
+      alert("Please, use me...");
+    }, 30000);
+  </script>
+</body>
+</html>
