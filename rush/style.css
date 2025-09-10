@@ -1,0 +1,41 @@
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+  z-index: 100;
+}
+.nav-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar .brand {
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--fg);
+}
+.navbar .links a {
+  margin-left: 16px;
+  text-decoration: none;
+  color: var(--muted);
+}
+.navbar .links a:hover {
+  color: var(--fg);
+}
+
+/* ให้ scroll ลงมาไม่ทับ */
+.wrap {
+  max-width: 960px;
+  margin: 80px auto 32px; /* +80px เผื่อ navbar */
+  padding: 0 20px;
+}
+@media (max-width: 600px) {
+  .wrap {
+    margin: 100px auto 32px; /* +100px เผื่อ navbar */
+  }
+}
