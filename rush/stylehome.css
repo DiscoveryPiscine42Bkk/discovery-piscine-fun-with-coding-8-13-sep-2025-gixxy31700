@@ -1,0 +1,29 @@
+.profile-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto;
+  }
+body {
+  background-color: #1e3a8a;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: -100px;
+}
+
+.card {
+  border-radius: 20px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  transition: transform 0.3s;
+}
+
+
+h1 {
+  font-weight: bold;
+  color: white;
+}
